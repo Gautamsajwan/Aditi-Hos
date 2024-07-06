@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import logo from "../assets/images/A-logo.png";
 import userImg from "../assets/images/avatar-icon.png";
@@ -19,6 +19,7 @@ function Header() {
 
   const headRef = useRef(null);
   const menuRef = useRef(null);
+  const [showSidebar, setShowSidebar] = useState(false)
 
   const handleStickyHeader = () => {
     window.addEventListener('scroll', () => {
@@ -46,6 +47,7 @@ function Header() {
   }, []);
 
   const toggleMenu = () => {
+    setShowSidebar(prev => !prev)
     menuRef.current.classList.toggle('show_menu');
   };
   return (
@@ -55,7 +57,7 @@ function Header() {
           <img src={logo} alt="ADITI LOGO" />
         </div>
         <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-          <ul className="menu flex justify-center lg:gap-10 lg:m-0.5">
+          <ul className={`menu flex justify-center lg:gap-10 lg:m-0.5`}>
             {navLinks.map((link, index) => (
               <li className=" m-[0.5rem] "key={index}>
                 {/* Use NavLink instead of a regular anchor tag */}

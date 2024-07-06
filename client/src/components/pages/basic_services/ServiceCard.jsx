@@ -5,7 +5,7 @@ function ServiceCard({item , index}) {
     const { name, desc , bgColor  , textColor} = item;
   return (
     <>   
-      <div className=" relative py-[30px] px-3 lg:px-5 border border-solid border-gray-500 rounded-lg  bg-[url('./assets/images/hero-bg.png')] bg-no-repeat bg-center bg-cover bg-fixed w-full h-full leading-[100px]  ">
+      <div className="relative py-[30px] px-3 lg:px-5 border border-solid border-gray-500 rounded-lg  bg-[url('./assets/images/hero-bg.png')] bg-no-repeat bg-center bg-cover bg-fixed w-full h-full leading-[100px]  ">
           <h2 className="text-[26px] leading-9 text-headingColor font-[700]">{name}</h2>
           <p className="text-[16px] leading-7 font-[400] text-textColo mt-4">{desc}</p>
           <div className='flex items-center justify-between mt-[10px] transform transition-transform hover:scale-150'>
