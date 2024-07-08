@@ -42,21 +42,21 @@ function Home() {
         return;
       }
 
-      // const response = await fetch("http://192.168.158.223:4000/checkLoginStatus",{
-      //   method: 'POST',
-      //   headers: {
-      //   'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({token: token})
-      // })
+      const response = await fetch("http://192.168.158.223:4000/checkLoginStatus",{
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({token: token})
+      })
 
-      // const data = await response.json();
-      // if(data.success){
+      const data = await response.json();
+      if(data.success){
       setLoginStatus(true);
-      // } else{
-      //   setLoginStatus(false);
-      //   nav("/Login");
-      //   }
+      } else{
+        setLoginStatus(false);
+        nav("/Login");
+        }
 
       showLoader(false);
       return;
@@ -130,7 +130,7 @@ function Home() {
           {/* Header */}
           <Header></Header>
           {/* hero section */}
-          <section className="hero_section pt-[0px] 2xl:h-[600px]">
+          <section className="hero_section pt-[0px] h-screen">
             <div className="container">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -155,7 +155,7 @@ function Home() {
                         well-being. Experience the difference at Aditi Hospital,
                         where you come first
                       </p>
-                      <div className="flex  items-center gap-4">
+                      <div className="flex items-center gap-4">
                         {/* <Link to="/login"> */}
                         <button onClick={AppointmentRequest} className="btn w-1/2 text-sm sm:text-base">
                           Request Appointment
